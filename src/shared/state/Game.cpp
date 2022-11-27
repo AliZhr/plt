@@ -80,7 +80,7 @@ bool state::Game::IsBeeCircled(state::Player player) {
 state::Game::Game() {
     this->nbIteration=0; //On commence au tour 0
     this->state=Player_A_playing; //choix arbitraire
-    this->GameMap= new Map(17,10); //Map de 10 x 10 cases
+    this->GameMap= new Map(10,17); //Map de 10 x 10 cases
 
 }
 

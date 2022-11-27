@@ -11,10 +11,10 @@ void render::MapDraw::generateMapPixel() {
     temphexa.rotate(90);
     temphexa.setOrigin({ temphexa.getRadius(), temphexa.getRadius() });
 
-    for (int y = 0; y < 17 ; ++y) {
+    for (int y = 0; y < 10 ; ++y) {
         std::vector<sf::Vector2f> temp;
-        for (int x = 0; x < 10; ++x) {
-            temphexa.setPosition(200 + y * 40.f , (y % 2 ? 50 : 75) + x * 50.f + 50);
+        for (int x = 0; x < 17; ++x) {
+            temphexa.setPosition(200 + x * 40.f , (x % 2 ? 50 : 75) + y * 50.f + 50);
             temp.push_back(temphexa.getPosition());
         }
         this->mapPixelPosition.push_back(temp);
@@ -81,8 +81,8 @@ void render::MapDraw::getPressedTiles(int posx, int posy, sf::RenderWindow& wind
     int R, C;
     int X, Y;
     std::cout<<"DEBUT LECTURE\n"<<std::endl;
-    for (int i = 0; i < 17 ; ++i) {
-        for (int j = 0; j < 10; ++j) {
+    for (int i = 0; i < 10 ; ++i) {
+        for (int j = 0; j < 17; ++j) {
 
             R = this->mapPixelPosition[i][j].x;
             C = this->mapPixelPosition[i][j].y;
