@@ -189,12 +189,13 @@ std::string render::InsectDraw::getPressedInsect(int xt, int yt) {
             //std::cout << pos.x << "-" << pos.y  << std::endl;
 
             if ((xt < x + 10) && (xt > x - 10) && (yt < y + 10) && (yt > y - 10)) {
-                std::cout << name << std::endl;
-                return std::string(name);
+                //std::cout << name << std::endl;
+                return name;
             }
         }
 
-    return {};
+    std::cout<< "test" <<std::endl;
+    return std::string{"nothing"};
 
 }
 

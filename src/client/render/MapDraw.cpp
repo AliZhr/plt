@@ -99,14 +99,15 @@ void render::MapDraw::getPressedTiles(int posx, int posy, sf::RenderWindow& wind
 
 
 
-    /*sf::CircleShape selected_tiles(24, 6);
+    sf::CircleShape selected_tiles(24, 6);
     selected_tiles.setOutlineColor(sf::Color::White);
     selected_tiles.setOutlineThickness(2);
     selected_tiles.setFillColor(sf::Color::Blue);
     selected_tiles.rotate(90);
     selected_tiles.setOrigin({ selected_tiles.getRadius(), selected_tiles.getRadius() });
+    window.draw(selected_tiles);
 
-    int R, C;
+    /*int R, C;
     for (int i = 0; i < 17 ; ++i) {
         for (int j = 0; j < 10; ++j) {
             R = this->mapPixelPosition[i][j].x;

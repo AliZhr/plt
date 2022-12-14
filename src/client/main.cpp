@@ -81,7 +81,7 @@ int main(int argc,char* argv[]){
         float Y = window.getSize().y;
         float xo = window.getSize().x;
         float yo = window.getSize().y;
-
+        int etat = 0 ;
         float sx=1.0, sy=1.0;
         /*-----------------------------------------------FIN-RENDER---INIT----------------------------------------------------------*/
 
@@ -89,14 +89,14 @@ int main(int argc,char* argv[]){
 
 
         //AFFICHAGE DE LA MAP
-        for (int a=0;a<game_test.GetMap()->GetLength();a++){
+        /*for (int a=0;a<game_test.GetMap()->GetLength();a++){
             for (int b=0;b<game_test.GetMap()->GetWidth();b++){
                 cout <<"  ["<< game_test.GetMap()->GetListCase()[a][b].Get_i() << "|"<<game_test.GetMap()->GetListCase()[a][b].Get_j()<<"|"<<game_test.GetMap()->GetListCase()[a][b].GetEmpty()<<"]";
                 if (b==game_test.GetMap()->GetWidth()-1){
                     cout<<"\n"<<endl;
                 }
             }
-        }
+        }*/
 
 
         cout<<"---------------------DEBUT DU JEU---------------------"<<endl;
@@ -118,20 +118,57 @@ int main(int argc,char* argv[]){
                     //sy =  float(HEIGHT/window.getSize().y);
                     X = (window.getSize().x);
                     Y = (window.getSize().y);
+
                 }
 
                 if (event.type == sf::Event::MouseButtonPressed){
 
-                    if(event.mouseButton.button == sf::Mouse::Left){
+                    if(event.mouseButton.button == sf::Mouse::Right){
                         //int posx = event.mouseButton.x * sx;
                         //int posy = event.mouseButton.y * sy;
                         //scene.insectDraw.getPressedInsect(posx,posy);
                         int posx = int(event.mouseButton.x * (xo/X));
                         int posy = int(event.mouseButton.y * (yo/Y));
-                        //scene.insectDraw.getPressedInsect(posx,posy);
-                        scene.mapDraw.getPressedTiles(posx,posy,window);
+
+                        string insect_selected = scene.insectDraw.getPressedInsect(posx,posy);
+
+                        //scene.mapDraw.getPressedTiles(posx,posy,window);
+                        int i = 0;
+                        int number = 0;
+                        bool found = 0;
+
+                        if(etat == 0){
+                            for (auto &ins: game_test.GetAllInsects()) {
+                                if(found == false){
+                                    if (ins->GetName() == insect_selected){
+                                     found = true;
+                                     etat = 1;
+                                     number = i;
+                                     cout << i << "\n" << endl;
+                                    }
+                                    ++i;
+                                }
+                            }
+                        }
+                         if(etat == 1){
+                            Insect *insect_moving = game_test.GetAllInsects()[number];
+                            //cout<<insect_selected<< "\n"<<endl;
+                            cout << "Vous avez choisi : " << insect_moving->GetName() << "\n";
+                            found = false;
+                            etat = 0;
+                            i = 0;
+                             vector<Case> list_case;
+                             for (int i=0;i<game_test.GetMap()->GetLength();i++){
+                                 for (int j=0;j<game_test.GetMap()->GetWidth();j++){
+                                     list_case.push_back( game_test.GetMap()->GetListCase()[i][j]);
+                                 }
+                             }
+                            /*if(insect_moving->getIsPlaced()){
+                                insect_moving->Possible_Placement_Insect(game_test.GetAllInsect_placed(),list_case);
+                            }*/
+                        }
                     }
-                    if(event.mouseButton.button == sf::Mouse::Right){
+                    /*if(event.mouseButton.button == sf::Mouse::Left){
 
                         for(auto k : game_test.GetAllInsects()){
                             std::cout<<k->GetName()<<std::endl;
@@ -147,7 +184,7 @@ int main(int argc,char* argv[]){
                             stateanother.AppendListJoueur(*i);
                         }
                         game_test = stateanother;
-                    }
+                    }*/
                 }
             }
             int xi = int((xmouse) * (xo/X));
@@ -156,7 +193,7 @@ int main(int argc,char* argv[]){
             std::stringstream ss;
             ss << "X " << xi <<"\n"
                << "Y " << yi << "\n";
-            window.clear();
+
             text.setString(ss.str());
             window.draw(text);
             scene.drawScene(game_test, window);
@@ -291,9 +328,9 @@ int main(int argc,char* argv[]){
                     //int xi = int(xmouse * sx);
                     //int yi = int(ymouse * sy);
 
-                }
-                nbTour++;
-                game_test.SetIteration(game_test.GetIteration() + 1);
+                //}
+                //nbTour++;
+                //game_test.SetIteration(game_test.GetIteration() + 1);
 
 
 
@@ -302,6 +339,7 @@ int main(int argc,char* argv[]){
         }
 
 
+        }
     }
 
     else if ((string)argv[argc-1]=="render"){
