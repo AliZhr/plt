@@ -1,4 +1,4 @@
-# Install script for directory: /home/ali/plt/test/shared
+# Install script for directory: /home/lavansri/ENSEA/Hive_IA/plt/test/shared
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

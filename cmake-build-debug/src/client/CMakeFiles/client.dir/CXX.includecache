@@ -53,8 +53,6 @@ vector
 -
 SFML/Graphics.hpp
 -
-state/Player.hpp
-../src/client/render/state/Player.hpp
 state/Game.hpp
 ../src/client/render/state/Game.hpp
 
@@ -75,24 +73,28 @@ CommandTypeId.hpp
 ../src/shared/engine/CommandTypeId.hpp
 state/GameStatus.hpp
 ../src/shared/engine/state/GameStatus.hpp
-state/Player.hpp
-../src/shared/engine/state/Player.hpp
 Engine.hpp
 ../src/shared/engine/Engine.hpp
 
 ../src/shared/engine/CommandTypeId.hpp
 
 ../src/shared/engine/DeplacementCommand.hpp
+vector
+-
+state/GameStatus.hpp
+../src/shared/engine/state/GameStatus.hpp
+CommandTypeId.hpp
+../src/shared/engine/CommandTypeId.hpp
 Command.hpp
 ../src/shared/engine/Command.hpp
 
 ../src/shared/engine/Engine.hpp
 vector
 -
-state/Game.hpp
-../src/shared/engine/state/Game.hpp
 Command.hpp
 ../src/shared/engine/Command.hpp
+state/Game.hpp
+../src/shared/engine/state/Game.hpp
 
 ../src/shared/engine/PlacementCommand.hpp
 vector
@@ -179,12 +181,10 @@ vector
 -
 GameStatus.hpp
 ../src/shared/state/GameStatus.hpp
-Insect.hpp
-../src/shared/state/Insect.hpp
-Map.hpp
-../src/shared/state/Map.hpp
 Player.hpp
 ../src/shared/state/Player.hpp
+Map.hpp
+../src/shared/state/Map.hpp
 
 ../src/shared/state/GameStatus.hpp
 
@@ -246,7 +246,7 @@ Insect.hpp
 Case.hpp
 ../src/shared/state/Case.hpp
 
-/home/ali/plt/src/client/main.cpp
+/home/lavansri/ENSEA/3A/Projet/plt2/plt/src/client/main.cpp
 iostream
 -
 SFML/Graphics.hpp

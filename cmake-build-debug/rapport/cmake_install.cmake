@@ -1,4 +1,4 @@
-# Install script for directory: /home/ali/plt/rapport
+# Install script for directory: /home/lavansri/ENSEA/Hive_IA/plt/rapport
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

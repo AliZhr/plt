@@ -1,4 +1,4 @@
-# Install script for directory: /home/ali/plt/extern/dia2code
+# Install script for directory: /home/lavansri/ENSEA/Hive_IA/plt/extern/dia2code
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

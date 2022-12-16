@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ali/plt
+CMAKE_SOURCE_DIR = /home/lavansri/ENSEA/Hive_IA/plt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ali/plt/cmake-build-debug
+CMAKE_BINARY_DIR = /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug
 
 # Utility rule file for unittest.
 
@@ -67,10 +67,10 @@ test/CMakeFiles/unittest.dir/build: unittest
 .PHONY : test/CMakeFiles/unittest.dir/build
 
 test/CMakeFiles/unittest.dir/clean:
-	cd /home/ali/plt/cmake-build-debug/test && $(CMAKE_COMMAND) -P CMakeFiles/unittest.dir/cmake_clean.cmake
+	cd /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/test && $(CMAKE_COMMAND) -P CMakeFiles/unittest.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/unittest.dir/clean
 
 test/CMakeFiles/unittest.dir/depend:
-	cd /home/ali/plt/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ali/plt /home/ali/plt/test /home/ali/plt/cmake-build-debug /home/ali/plt/cmake-build-debug/test /home/ali/plt/cmake-build-debug/test/CMakeFiles/unittest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lavansri/ENSEA/Hive_IA/plt /home/lavansri/ENSEA/Hive_IA/plt/test /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/test /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/test/CMakeFiles/unittest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/unittest.dir/depend
 

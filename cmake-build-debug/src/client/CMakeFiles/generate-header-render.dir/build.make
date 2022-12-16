@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ali/plt
+CMAKE_SOURCE_DIR = /home/lavansri/ENSEA/Hive_IA/plt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ali/plt/cmake-build-debug
+CMAKE_BINARY_DIR = /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug
 
 # Utility rule file for generate-header-render.
 
@@ -57,11 +57,11 @@ src/client/CMakeFiles/generate-header-render: generate_header_render.stamp
 
 
 generate_header_render.stamp: ../src/render.dia
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ali/plt/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../../generate_header_render.stamp"
-	cd /home/ali/plt/cmake-build-debug/src/client && rm -vf /home/ali/plt/src/*/render.h
-	cd /home/ali/plt/cmake-build-debug/src/client && rm -vf /home/ali/plt/src/*/render/*.h
-	cd /home/ali/plt/cmake-build-debug/src/client && ../../../bin/dia2code -ns render -d /home/ali/plt/src/client -t cpp /home/ali/plt/src/client/../render.dia -ext hpp
-	cd /home/ali/plt/cmake-build-debug/src/client && /usr/bin/cmake -E touch /home/ali/plt/cmake-build-debug/generate_header_render.stamp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../../generate_header_render.stamp"
+	cd /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/src/client && rm -vf /home/lavansri/ENSEA/Hive_IA/plt/src/*/render.h
+	cd /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/src/client && rm -vf /home/lavansri/ENSEA/Hive_IA/plt/src/*/render/*.h
+	cd /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/src/client && ../../../bin/dia2code -ns render -d /home/lavansri/ENSEA/Hive_IA/plt/src/client -t cpp /home/lavansri/ENSEA/Hive_IA/plt/src/client/../render.dia -ext hpp
+	cd /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/src/client && /usr/bin/cmake -E touch /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/generate_header_render.stamp
 
 generate-header-render: src/client/CMakeFiles/generate-header-render
 generate-header-render: generate_header_render.stamp
@@ -75,10 +75,10 @@ src/client/CMakeFiles/generate-header-render.dir/build: generate-header-render
 .PHONY : src/client/CMakeFiles/generate-header-render.dir/build
 
 src/client/CMakeFiles/generate-header-render.dir/clean:
-	cd /home/ali/plt/cmake-build-debug/src/client && $(CMAKE_COMMAND) -P CMakeFiles/generate-header-render.dir/cmake_clean.cmake
+	cd /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/src/client && $(CMAKE_COMMAND) -P CMakeFiles/generate-header-render.dir/cmake_clean.cmake
 .PHONY : src/client/CMakeFiles/generate-header-render.dir/clean
 
 src/client/CMakeFiles/generate-header-render.dir/depend:
-	cd /home/ali/plt/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ali/plt /home/ali/plt/src/client /home/ali/plt/cmake-build-debug /home/ali/plt/cmake-build-debug/src/client /home/ali/plt/cmake-build-debug/src/client/CMakeFiles/generate-header-render.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lavansri/ENSEA/Hive_IA/plt /home/lavansri/ENSEA/Hive_IA/plt/src/client /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/src/client /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/src/client/CMakeFiles/generate-header-render.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/client/CMakeFiles/generate-header-render.dir/depend
 

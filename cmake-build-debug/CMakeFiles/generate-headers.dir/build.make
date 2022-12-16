@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ali/plt
+CMAKE_SOURCE_DIR = /home/lavansri/ENSEA/Hive_IA/plt
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ali/plt/cmake-build-debug
+CMAKE_BINARY_DIR = /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug
 
 # Utility rule file for generate-headers.
 
@@ -67,6 +67,6 @@ CMakeFiles/generate-headers.dir/clean:
 .PHONY : CMakeFiles/generate-headers.dir/clean
 
 CMakeFiles/generate-headers.dir/depend:
-	cd /home/ali/plt/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ali/plt /home/ali/plt /home/ali/plt/cmake-build-debug /home/ali/plt/cmake-build-debug /home/ali/plt/cmake-build-debug/CMakeFiles/generate-headers.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lavansri/ENSEA/Hive_IA/plt /home/lavansri/ENSEA/Hive_IA/plt /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug /home/lavansri/ENSEA/Hive_IA/plt/cmake-build-debug/CMakeFiles/generate-headers.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/generate-headers.dir/depend
 
