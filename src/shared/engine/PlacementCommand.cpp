@@ -51,11 +51,13 @@ bool engine::PlacementCommand::execute(engine::Engine &engine) {
     //Regle : On doit poser les abeilles avant le tour 4
     if ((state==state::Player_A_playing && !placedB && tour == 3 && (this->insect->GetName() != "Bee_B")) ||
         (state==state::Player_B_playing && !placedA && tour == 3 && (this->insect->GetName() != "Bee_A"))){
+        cout<<"Erreur : il faut placer l'abeille"<<endl;
         return 0;
     }
     else {
         for (auto cas_temp : this->placement_possible){
             if((this->position[0]==cas_temp[0])&&(this->position[1]==cas_temp[1])&&(this->insect->GetIsPlaced()==false)){
+
                 engine.UpdateState(*engine.getState(), 0, *insect, this->position,*this->player);
                 return 1;
             }
@@ -64,7 +66,6 @@ bool engine::PlacementCommand::execute(engine::Engine &engine) {
 
     return 0;
 
-    //engine.UpdateState(*engine.getState(), 0,(state::Insect&) this->insect, this->position);
 }
 
 
