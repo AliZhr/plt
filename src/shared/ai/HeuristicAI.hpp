@@ -21,6 +21,8 @@ namespace ai {
   public:
     HeuristicAI (state::Game& game);
     std::vector<int> runAI ();
+    int BeeNeighbour ();
+    std::vector<state::Insect> GetInsectsToMove ();
     // Setters and Getters
   };
 
