@@ -27,7 +27,7 @@ std::vector<int> ai::RandomAI::runAI() {
     cout << "Choix possibles pour l'IA\n" << endl;
     for (auto &ins: this->ai->GetAllInsects()) {
 
-        if (ins->GetColor() == "Black") {
+        if (ins->GetColor() == "White") {
             cout << "I= " << i << " -->  " << ins->GetName() << "  |  " << ins->GetColor() << "  |  ["
                  << ins->Get_Position()[0] << ";" << ins->Get_Position()[1] << "] "
                  << ins->GetIsPlaced() << " \n";
