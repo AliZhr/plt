@@ -45,6 +45,7 @@ int main(int argc,char* argv[]){
     std::vector<Insect *> temp3;
     std::vector<Insect *> temp4;
 
+
     Bee Bee_B = Bee("Bee_B", "White", {-99, -99}, 0);
     temp4.push_back(&Bee_B);
     Bee Bee_A = Bee("Bee_A", "Black", {-99, -99}, 0);
@@ -63,10 +64,16 @@ int main(int argc,char* argv[]){
     temp3.push_back(&Grasshopper_A3);
     Spider Spider_B2 = Spider("Spider_B2", "White", {-99, -99}, 0);
     temp4.push_back(&Spider_B2);
+    Spider Spider_B1 = Spider("Spider_B1", "White", {-99, -99}, 0);
+    temp4.push_back(&Spider_B1);
     Spider Spider_A2 = Spider("Spider_A2", "Black", {-99, -99}, 0);
     temp3.push_back(&Spider_A2);
+    Spider Spider_A1 = Spider("Spider_A1", "Black", {-99, -99}, 0);
+    temp3.push_back(&Spider_A1);
     Ant Ant_B2 = Ant("Ant_B2", "White", {-99, -99},0);temp4.push_back(&Ant_B2);
+    Ant Ant_B1 = Ant("Ant_B1", "White", {-99, -99},0);temp4.push_back(&Ant_B1);
     Ant Ant_A2 = Ant("Ant_A2", "Black", {-99, -99},0);temp3.push_back(&Ant_A2);
+    Ant Ant_A1 = Ant("Ant_A1", "Black", {-99, -99},0);temp3.push_back(&Ant_A1);
 
     for (auto &i: temp3) {
         Giroud.Add_Insect_Remaining(*i);
@@ -89,9 +96,12 @@ int main(int argc,char* argv[]){
     game_test.AppendListInsect(Grasshopper_A3);
     game_test.AppendListInsect(Spider_B2);
     game_test.AppendListInsect(Spider_A2);
+    game_test.AppendListInsect(Spider_B1);
+    game_test.AppendListInsect(Spider_A1);
     game_test.AppendListInsect(Ant_B2);
     game_test.AppendListInsect(Ant_A2);
-
+    game_test.AppendListInsect(Ant_B1);
+    game_test.AppendListInsect(Ant_A1);
 
     if ((string)argv[argc-1]=="hello"){
         cout << "Hello World !" << endl;
