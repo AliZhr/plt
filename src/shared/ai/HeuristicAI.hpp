@@ -2,6 +2,7 @@
 #ifndef AI__HEURISTICAI__H
 #define AI__HEURISTICAI__H
 
+#include <string>
 #include <vector>
 
 namespace state {
@@ -19,7 +20,7 @@ namespace ai {
   class HeuristicAI : public ai::AI {
     // Operations
   public:
-    HeuristicAI (state::Game& game);
+    HeuristicAI (state::Game& game, std::string color);
     std::vector<int> runAI ();
     int BeeNeighbour ();
     std::vector<state::Insect> GetInsectsToMove ();

@@ -2,6 +2,7 @@
 #ifndef AI__RANDOMAI__H
 #define AI__RANDOMAI__H
 
+#include <string>
 #include <vector>
 
 namespace state {
@@ -19,7 +20,7 @@ namespace ai {
   class RandomAI : public ai::AI {
     // Operations
   public:
-    RandomAI (state::Game& game);
+    RandomAI (state::Game& game, std::string color);
     std::vector<int> runAI ();
     // Setters and Getters
   };

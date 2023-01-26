@@ -35,14 +35,12 @@ bool engine::PlacementCommand::execute(engine::Engine &engine) {
     }
 
     //Test pour verifier si les pions abeilles sont placés ou pas
-    if(!foundB || !foundA) {
+    if(!placedB || !placedA) {
         for (auto ins: game.GetAllInsect_placed()) {
             if (playerColor == "White" && ins.GetName() == "Bee_B") {
                 placedB = 1;
-                foundB = 1;
             } else if (playerColor == "Black" && ins.GetName() == "Bee_A") {
                 placedA = 1;
-                foundA = 1;
             }
         }
     }
@@ -54,7 +52,7 @@ bool engine::PlacementCommand::execute(engine::Engine &engine) {
         cout<<"Erreur : il faut placer l'abeille"<<endl;
         return 0;
     }
-    else {
+    else if (state==state::Player_A_playing ||  state == state::Player_B_playing){
         for (auto cas_temp : this->placement_possible){
             if((this->position[0]==cas_temp[0])&&(this->position[1]==cas_temp[1])&&(this->insect->GetIsPlaced()==false)){
 

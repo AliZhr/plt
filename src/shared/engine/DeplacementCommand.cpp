@@ -35,7 +35,7 @@ bool engine::DeplacementCommand::execute(engine::Engine &engine) {
         }
     }
 
-    if(placed){
+    if(placed && (state==state::Player_A_playing ||  state == state::Player_B_playing)){
         for (auto cas_temp : this->placement_possible){
             if((this->position[0]==cas_temp[0])&&(this->position[1]==cas_temp[1])&&(this->insect->GetIsPlaced()==true)){
                 engine.UpdateState(*engine.getState(), 1, *insect, this->position,*this->player);

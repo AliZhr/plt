@@ -103,6 +103,13 @@ int main(int argc,char* argv[]){
     game_test.AppendListInsect(Ant_B1);
     game_test.AppendListInsect(Ant_A1);
 
+        sf::CircleShape temphexa(24, 6);
+        temphexa.rotate(90);
+        temphexa.setOrigin({temphexa.getRadius(), temphexa.getRadius()});
+        sf::Color selected(106,13,173);
+        temphexa.setFillColor(selected);
+        temphexa.setOutlineColor(sf::Color::White);
+
     if ((string)argv[argc-1]=="hello"){
         cout << "Hello World !" << endl;
     }
@@ -117,13 +124,6 @@ int main(int argc,char* argv[]){
         if (!font.loadFromFile("./res/arial.ttf"))
             return EXIT_FAILURE;
         sf::Text text("Hello SFML", font, 20);
-
-        sf::CircleShape temphexa(24, 6);
-        temphexa.rotate(90);
-        temphexa.setOrigin({temphexa.getRadius(), temphexa.getRadius()});
-        sf::Color selected(106,13,173);
-        temphexa.setFillColor(selected);
-        temphexa.setOutlineColor(sf::Color::White);
 
         float X = window.getSize().x;
         float Y = window.getSize().y;
@@ -291,9 +291,7 @@ int main(int argc,char* argv[]){
     else if ((string)argv[argc-1]=="ai") {
 
         Engine engine_test = *new Engine(game_test);
-        RandomAI ai_test = *new RandomAI(game_test);
-
-
+        RandomAI ai_test = *new RandomAI(game_test, Giroud.GetColor());
 
 
         //AFFICHAGE DE LA MAP
@@ -533,7 +531,7 @@ int main(int argc,char* argv[]){
 
     else if ((string)argv[argc-1]=="engine_ai") {
 
-        RandomAI ai_test = *new RandomAI(game_test);
+        RandomAI ai_test = *new RandomAI(game_test, Giroud.GetColor());
 
         /*---------------------------------------------RENDER--INIT------------------------------------------------------------------*/
         sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "HIVE",
@@ -543,13 +541,6 @@ int main(int argc,char* argv[]){
         if (!font.loadFromFile("./res/arial.ttf"))
             return EXIT_FAILURE;
         sf::Text text("Hello SFML", font, 20);
-
-        sf::CircleShape temphexa(24, 6);
-        temphexa.rotate(90);
-        temphexa.setOrigin({temphexa.getRadius(), temphexa.getRadius()});
-        sf::Color selected(106,13,173);
-        temphexa.setFillColor(selected);
-        temphexa.setOutlineColor(sf::Color::White);
 
         float X = window.getSize().x;
         float Y = window.getSize().y;
@@ -806,7 +797,7 @@ int main(int argc,char* argv[]){
     else if ((string)argv[argc-1]=="engine_heur") {
 
 
-        HeuristicAI ai_test = *new HeuristicAI(game_test);
+        HeuristicAI ai_test = *new HeuristicAI(game_test, Giroud.GetColor());
 
         /*---------------------------------------------RENDER--INIT------------------------------------------------------------------*/
         sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "HIVE",
@@ -817,12 +808,6 @@ int main(int argc,char* argv[]){
             return EXIT_FAILURE;
         sf::Text text("Hello SFML", font, 20);
 
-        sf::CircleShape temphexa(24, 6);
-        temphexa.rotate(90);
-        temphexa.setOrigin({temphexa.getRadius(), temphexa.getRadius()});
-        sf::Color selected(106,13,173);
-        temphexa.setFillColor(selected);
-        temphexa.setOutlineColor(sf::Color::White);
 
         float X = window.getSize().x;
         float Y = window.getSize().y;
@@ -1079,9 +1064,9 @@ int main(int argc,char* argv[]){
     else if ((string)argv[argc-1]=="randomvsheur") {
 
 
-        HeuristicAI ai_heur = *new HeuristicAI(game_test);
+        HeuristicAI ai_heur = *new HeuristicAI(game_test, Giroud.GetColor());
 
-        RandomAI ai_rand = *new RandomAI(game_test);
+        RandomAI ai_rand = *new RandomAI(game_test, Benzema.GetColor());
 
 
         /*---------------------------------------------RENDER--INIT------------------------------------------------------------------*/
@@ -1093,13 +1078,7 @@ int main(int argc,char* argv[]){
             return EXIT_FAILURE;
         sf::Text text("Hello SFML", font, 20);
 
-        sf::CircleShape temphexa(24, 6);
-        temphexa.rotate(90);
-        temphexa.setOrigin({temphexa.getRadius(), temphexa.getRadius()});
-        sf::Color selected(106,13,173);
-        temphexa.setFillColor(selected);
-        temphexa.setOutlineColor(sf::Color::White);
-
+    
         float X = window.getSize().x;
         float Y = window.getSize().y;
         float xo = window.getSize().x;
@@ -1166,7 +1145,7 @@ int main(int argc,char* argv[]){
                         PlacementCommand plac = PlacementCommand(game_test.GetState(),
                                                                  {command_list[1], command_list[2]},
                                                                  *insect_moving,
-                                                                 PLACEMENT, Benzema, temp_coord_AI);
+                                                                 PLACEMENT, *player_temp, temp_coord_AI);
                         bool resultat = plac.execute(engine_test);
                         if (resultat) {
                             cout << "Placement effectué" << endl;
@@ -1191,16 +1170,16 @@ int main(int argc,char* argv[]){
                         DeplacementCommand deplac = DeplacementCommand(game_test.GetState(),
                                                                        {command_list[1], command_list[2]},
                                                                        *insect_moving,
-                                                                       DEPLACEMENT, Benzema, temp_coord_AI);
+                                                                       DEPLACEMENT, *player_temp, temp_coord_AI);
                         resultat = deplac.execute(engine_test);
                         if (resultat) {
                             cout << "Déplacement effectué" << endl;
 
                             if (game_test.GetState() == state::Player_A_playing) {
-                                player_temp = &Benzema;
+                                player_temp = &Giroud;
                                 AI_turn=0;
                             } else if (game_test.GetState() == state::Player_B_playing) {
-                                player_temp = &Giroud;
+                                player_temp = &Benzema;
                                 AI_turn=1;
                             }
                             cout << "FIN IA\n" << endl;
@@ -1241,7 +1220,7 @@ int main(int argc,char* argv[]){
                         PlacementCommand plac = PlacementCommand(game_test.GetState(),
                                                                  {command_list[1], command_list[2]},
                                                                  *insect_moving,
-                                                                 PLACEMENT, Giroud, temp_coord_AI);
+                                                                 PLACEMENT, *player_temp, temp_coord_AI);
                         bool resultat = plac.execute(engine_test);
                         if (resultat) {
                             cout << "Placement effectué" << endl;
@@ -1267,15 +1246,15 @@ int main(int argc,char* argv[]){
                         DeplacementCommand deplac = DeplacementCommand(game_test.GetState(),
                                                                        {command_list[1], command_list[2]},
                                                                        *insect_moving,
-                                                                       DEPLACEMENT, Giroud, temp_coord_AI);
+                                                                       DEPLACEMENT, *player_temp, temp_coord_AI);
                         resultat = deplac.execute(engine_test);
                         if (resultat) {
                             cout << "Déplacement effectué" << endl;
                             if (game_test.GetState() == state::Player_A_playing) {
-                                player_temp = &Benzema;
+                                player_temp = &Giroud;
                                 AI_turn=0;
                             } else if (game_test.GetState() == state::Player_B_playing) {
-                                player_temp = &Giroud;
+                                player_temp = &Benzema;
                                 AI_turn=1;
                             }
                             cout << "FIN IA\n" << endl;
@@ -1285,6 +1264,119 @@ int main(int argc,char* argv[]){
                 }
             }
         }
+    }
+
+    else if((string)argv[argc-1] == "heurvsheur"){
+
+        HeuristicAI ai_heur1 = *new HeuristicAI(game_test, Benzema.GetColor());
+        HeuristicAI ai_heur2 = *new HeuristicAI(game_test, Giroud.GetColor());
+
+        /*---------------------------------------------RENDER--INIT------------------------------------------------------------------*/
+         sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "HIVE",
+                                sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
+        Scene scene = Scene(game_test);
+
+        //Pour resize
+        float X = window.getSize().x;
+        float Y = window.getSize().y;
+        float xo = window.getSize().x;
+        float yo = window.getSize().y;
+        float sx = 1.0, sy = 1.0;
+        int posx;
+        int posy;
+
+        //init debut du jeu
+        int etat = 0;
+        vector<vector<int>> temp_coord;
+        vector<int> temp_selected;
+        Insect *insect_moving = nullptr;
+        Player *player_temp = &Benzema;
+        AI *ai_temp = &ai_heur1;
+
+        std::vector<std::vector<sf::Vector2f>> mapPixelPosition;
+        mapPixelPosition = scene.mapDraw.mapPixelPosition;
+
+        Engine engine_test = *new Engine(game_test);
+        bool endgame = false;
+
+        while (window.isOpen()) {
+
+            window.clear();
+            scene.drawScene(game_test, window);
+            window.display();
+            
+                    bool resultat = false;
+
+                    while (resultat == false && endgame == false) {
+                        vector<vector<int>> temp_coord_AI;
+                        vector<int> command_list = ai_temp->runAI();
+                        cout << "FIN RUN HEUR\n" << endl;
+
+                        cout << "DEBUT TRAITEMENT RETOURNE PAR HEUR\n" << endl;
+
+                        Insect *insect_moving = game_test.GetAllInsects()[command_list[3]];
+                        vector<Case> list_case;
+                        for (int i = 0; i < game_test.GetMap()->GetLength(); i++) {
+                            for (int j = 0; j < game_test.GetMap()->GetWidth(); j++) {
+                                list_case.push_back(game_test.GetMap()->GetListCase()[i][j]);
+                            }
+                        }
+
+
+                        if (command_list[0] == 0) {
+                            temp_coord_AI = insect_moving->Possible_Placement_Insect(game_test.GetAllInsect_placed(),
+                                                                                    list_case);
+                            PlacementCommand plac = PlacementCommand(game_test.GetState(),
+                                                                    {command_list[1], command_list[2]},
+                                                                    *insect_moving,
+                                                                    PLACEMENT, *player_temp, temp_coord_AI);
+                            bool resultat = plac.execute(engine_test);
+                            if (resultat) {
+                                cout << "Placement effectué" << endl;
+
+                                if (game_test.GetState() == state::Player_A_playing) {
+                                    player_temp = &Benzema;
+                                    ai_temp = &ai_heur1;
+                                } else if (game_test.GetState() == state::Player_B_playing) {
+                                    player_temp = &Giroud;
+                                    ai_temp = &ai_heur2;
+                                }
+                                cout << "FIN HEUR\n" << endl;
+                                break;
+                            }
+
+                        }
+                        else {
+                            temp_coord_AI = insect_moving->Possible_Deplacement_Insect(game_test.GetAllInsect_placed(),
+                                                                                    list_case);
+                            DeplacementCommand deplac = DeplacementCommand(game_test.GetState(),
+                                                                        {command_list[1], command_list[2]},
+                                                                        *insect_moving,
+                                                                        DEPLACEMENT, *player_temp, temp_coord_AI);
+                            resultat = deplac.execute(engine_test);
+                            if (resultat) {
+                                cout << "Déplacement effectué" << endl;
+                                if (game_test.GetState() == state::Player_A_playing) {
+                                    player_temp = &Benzema;
+                                    ai_temp = &ai_heur1;
+                                } else if (game_test.GetState() == state::Player_B_playing) {
+                                    player_temp = &Giroud;
+                                    ai_temp = &ai_heur2;
+                                }
+                                cout << "FIN HEUR\n" << endl;
+                                break;
+                            }
+                        }
+                    
+                    if(game_test.GetState() != state::Player_A_playing || game_test.GetState() != state::Player_B_playing){
+                        endgame = true;
+                        cout << "FIN HEUR\n" << endl;
+                        break;
+                    }
+
+                 }
+        }
+
     }
 
     else if ((string)argv[argc-1]=="render"){

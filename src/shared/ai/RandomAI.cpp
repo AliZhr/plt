@@ -9,9 +9,10 @@ using namespace std;
 using namespace state;
 using namespace engine;
 
-ai::RandomAI::RandomAI(state::Game &game) : AI(game) {
+ai::RandomAI::RandomAI(state::Game& game, std::string color) : AI(game,color) {
 this->ai=&game;
 this->player_a=true;
+this->color = color;
 }
 
 std::vector<int> ai::RandomAI::runAI() {
@@ -27,7 +28,7 @@ std::vector<int> ai::RandomAI::runAI() {
     cout << "Choix possibles pour l'IA\n" << endl;
     for (auto &ins: this->ai->GetAllInsects()) {
 
-        if (ins->GetColor() == "White") {
+        if (ins->GetColor() == this->color) {
             cout << "I= " << i << " -->  " << ins->GetName() << "  |  " << ins->GetColor() << "  |  ["
                  << ins->Get_Position()[0] << ";" << ins->Get_Position()[1] << "] "
                  << ins->GetIsPlaced() << " \n";
