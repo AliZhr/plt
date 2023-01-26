@@ -8,12 +8,24 @@
 using namespace std;
 using namespace state;
 
-ai::HeuristicAI::HeuristicAI(state::Game &game) : AI(game) {
+ai::HeuristicAI::HeuristicAI(state::Game& game, std::string color) : AI(game,color) {
     this->ai=&game;
     this->player_a=true;
+    this->color=color;
 }
 
 std::vector<int> ai::HeuristicAI::runAI() {
+
+    std::string myBee;
+    std::string notMyBee;
+    if(this->color == "White"){
+        myBee = "Bee_B";
+        notMyBee = "Bee_A";
+    }else if(this->color == "Black"){
+        myBee = "Bee_A";
+        notMyBee = "Bee_B";
+    }
+
 
     cout<<"L'IA HEURISTIQUE JOUE !"<<endl;
 
@@ -31,11 +43,11 @@ std::vector<int> ai::HeuristicAI::runAI() {
         int bee_index=0;
         vector<vector<int>> temp_coord;
         for(auto bee_to_find : this->ai->GetAllInsects()){
-            if(bee_to_find->GetName()=="Bee_A"){
+            if(bee_to_find->GetName()==myBee){
                 cout<<"PREMIER TOUR DONC ON POSE L'ABEILLE"<<endl;
 
                 temp_coord =bee_to_find->Possible_Placement_Insect(ai->GetAllInsect_placed(), list_case);
-                int random_coord=rand()%(temp_coord.size());
+                int random_coord=rand()%(temp_coord.size()-1);
                 auto choice_coord = temp_coord[random_coord];
 
                 result.push_back(0);
@@ -55,7 +67,7 @@ std::vector<int> ai::HeuristicAI::runAI() {
         int bee_index=0;
         vector<vector<int>> temp_coord;
         for(auto bee_to_find : this->ai->GetAllInsects()){
-            if(bee_to_find->GetName()=="Bee_A"){
+            if(bee_to_find->GetName()=="myBee"){
                 srand((unsigned int)time(0));
 
 
@@ -80,7 +92,7 @@ std::vector<int> ai::HeuristicAI::runAI() {
     int bee_index=0;
     vector<vector<int>> temp_coord;
     for(auto bee_to_find : this->ai->GetAllInsects()){
-        if((bee_to_find->GetName()=="Bee_B")&&(!bee_to_find->GetIsPlaced())){
+        if((bee_to_find->GetName()==notMyBee)&&(!bee_to_find->GetIsPlaced())){
 
             vector<int> list_choice_insect;
             int i = 0;
@@ -88,7 +100,7 @@ std::vector<int> ai::HeuristicAI::runAI() {
 
 
             for (auto &ins: this->ai->GetAllInsects()) {
-                if ((ins->GetColor() == "Black")&&(ins->GetIsPlaced()==0)) {
+                if ((ins->GetColor() == this->color)&&(ins->GetIsPlaced()==0)) {
                     list_choice_insect.push_back(i);
                 }
                 i++;
@@ -138,7 +150,7 @@ std::vector<int> ai::HeuristicAI::runAI() {
 
 
                 for (auto &ins: this->ai->GetAllInsects()) {
-                    if ((ins->GetColor() == "Black")&&(ins->GetIsPlaced()==0)) {
+                    if ((ins->GetColor() == this->color)&&(ins->GetIsPlaced()==0)) {
                         list_choice_insect.push_back(i);
                     }
                     i++;
@@ -178,7 +190,7 @@ std::vector<int> ai::HeuristicAI::runAI() {
         cout << "COORD AUTOUR DE BEE_B" << endl;
         vector<vector<int>> coord_neigh_bee_white;
         for (auto bee_adv: ai->GetAllInsect_placed()) {
-            if (bee_adv.GetName() == "Bee_B") {
+            if (bee_adv.GetName() == notMyBee) {
                 int i_bee = bee_adv.Get_i();
                 int j_bee = bee_adv.Get_j();
 
@@ -305,7 +317,7 @@ std::vector<int> ai::HeuristicAI::runAI() {
         int index_remain = 0;
 
         for (auto ins: this->ai->GetAllInsects()) {
-            if ((ins->GetColor() == "Black")&&(ins->GetIsPlaced()==0)) {
+            if ((ins->GetColor() == this->color)&&(ins->GetIsPlaced()==0)) {
                 list_insect_remaining.push_back(index_remain);
             }
             index_remain++;
@@ -349,7 +361,7 @@ std::vector<int> ai::HeuristicAI::runAI() {
 
             for (auto &ins: this->ai->GetAllInsects()) {
                 for (auto ins_to_test: InsectsToMove) {
-                    if ((ins->GetColor() == "Black")&&(ins->GetName()==ins_to_test.GetName())) {
+                    if ((ins->GetColor() == this->color)&&(ins->GetName()==ins_to_test.GetName())) {
                         list_choice_insect.push_back(i);
                         break;
                     }
@@ -395,7 +407,18 @@ std::vector<int> ai::HeuristicAI::runAI() {
 }
 
 int ai::HeuristicAI::BeeNeighbour() {
-    cout<<"ENTREE DANS BEENEIGHBOUR!"<<endl;
+
+    std::string myBee;
+    std::string notMyBee;
+    if(this->color == "White"){
+        myBee = "Bee_B";
+        notMyBee = "Bee_A";
+    }else if(this->color == "Black"){
+        myBee = "Bee_A";
+        notMyBee = "Bee_B";
+    }
+
+    std::cout<<"ENTREE DANS BEENEIGHBOUR!"<<endl;
     int neighbour=0;
 
     vector<Case> list_case;
@@ -407,7 +430,7 @@ int ai::HeuristicAI::BeeNeighbour() {
 
 
     for(auto bee_to_find : this->ai->GetAllInsects()){
-        if(bee_to_find->GetName()=="Bee_A") {
+        if(bee_to_find->GetName()== myBee) {
             int i_depart = bee_to_find->Get_i();
             int j_depart = bee_to_find->Get_j();
             //Parité de la colonne
@@ -499,6 +522,18 @@ int ai::HeuristicAI::BeeNeighbour() {
 
 
 std::vector<state::Insect> ai::HeuristicAI::GetInsectsToMove() {
+
+    std::string myBee;
+    std::string notMyBee;
+    if(this->color == "White"){
+        myBee = "Bee_B";
+        notMyBee = "Bee_A";
+    }else if(this->color == "Black"){
+        myBee = "Bee_A";
+        notMyBee = "Bee_B";
+    }
+
+
     cout<<"ENTREE DANS GETINSECTSTOMOVE!"<<endl;
     vector<Insect> result;
     vector<vector<int>> coord_neigh_bee_white;
@@ -513,7 +548,7 @@ std::vector<state::Insect> ai::HeuristicAI::GetInsectsToMove() {
 
 
     for(auto bee_adv : ai->GetAllInsect_placed()){
-        if(bee_adv.GetName()=="Bee_B"){
+        if(bee_adv.GetName()== notMyBee){
             int i_bee = bee_adv.Get_i();
             int j_bee = bee_adv.Get_j();
 
@@ -573,7 +608,7 @@ std::vector<state::Insect> ai::HeuristicAI::GetInsectsToMove() {
 
 
     for(auto ins : ai->GetAllInsect_placed()){
-        if(ins.GetColor()=="Black"){
+        if(ins.GetColor()==this->color){
             cout << "[FTC] test pour : "<<ins.GetName()<<" [ "<<ins.Get_i()<<" , "<<ins.Get_j()<<" ]" << endl;
             int occur=0;
             for(auto coord_to_avoid : coord_neigh_bee_white){

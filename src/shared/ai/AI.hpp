@@ -2,6 +2,7 @@
 #ifndef AI__AI__H
 #define AI__AI__H
 
+#include <string>
 #include <vector>
 
 namespace state {
@@ -15,12 +16,14 @@ namespace ai {
   /// class AI - 
   class AI {
     // Attributes
+  public:
+    std::string color;
   protected:
     state::Game* ai;
     bool player_a;
     // Operations
   public:
-    AI (state::Game& game);
+    AI (state::Game& game, std::string color);
     virtual std::vector<int> runAI ();
     // Setters and Getters
     const state::Game*& getAi() const;
