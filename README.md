@@ -1,9 +1,18 @@
 #
 
 
-# Projet Logiciel Transversal
+# Projet Logiciel Transversal - HIVE
 
 [![Actions Status](https://github.com/cbares/plt/workflows/PLT%20build/badge.svg)](https://github.com/AliZhr/plt/actions)
+
+> The goal of this project is to realize the bord game "Hive" with C++
+
+Ali ZOUHAIRI – Lavan SRISKANDARAJAH - Royston WINSON AROKIARAJAH
+
+<img src="rapport/image/Aspose.Words.d663220b-ca81-4584-8c4f-95488ddd0e67.001.jpeg">
+
+
+
 ## Get Started
 
 ## Install dependencies
@@ -66,14 +75,6 @@ $ ./bin/client randomvsheur
 $ ./bin/client heurvsheur
 ```
 
-
-**HIVE**
-
-Ali ZOUHAIRI – Lavan SRISKANDARAJAH
-
-Royston WINSON AROKIARAJAH
-
-<img src="rapport/image/Aspose.Words.d663220b-ca81-4584-8c4f-95488ddd0e67.001.jpeg">
 
 
 
