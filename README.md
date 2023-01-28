@@ -66,7 +66,8 @@ $ ./bin/client randomvsheur
 $ ./bin/client heurvsheur
 ```
 
-**Projet Logiciel Transversal**
+
+#Projet Logiciel Transversal
 
 **HIVE**
 
