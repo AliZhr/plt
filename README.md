@@ -6,7 +6,7 @@
 [![Actions Status](https://github.com/cbares/plt/workflows/PLT%20build/badge.svg)](https://github.com/AliZhr/plt/actions)
 ## Get Started
 
-Install dependencies
+## Install dependencies
 
 ```sh
 $ apt-get update
@@ -14,13 +14,57 @@ $ apt-get install -y build-essential cmake dia lcov gcovr libxml2-dev libsfml-de
 ```
 
 
-Clone the repository
+## Clone the repository
 ```sh 
 $ git clone https://github.com/AliZhr/plt
 ```
 
+## Build
+```sh
+$ cd plt
+$ mkdir build
+$ cd build
+$ cmake .. && make -j
+```
+## Hello World
+```sh
+$ ./bin/client hello
+```
 
+## Game render
+```sh
+$ ./bin/client render
+```
 
+## Engine - 1v1
+```sh
+$ ./bin/client engine
+```
+
+## Play vs random Ai without render
+```sh
+$ ./bin/client ai
+```
+
+## Play vs random AI with render
+```sh
+$ ./bin/client engine_ai
+```
+
+## Play vs Heuristic AI
+```sh
+$ ./bin/client engine_heur
+```
+
+## Random AI vs Heuristic AI
+```sh
+$ ./bin/client randomvsheur
+```
+
+## Heuristic AI vs Heuristic AI
+```sh
+$ ./bin/client heurvsheur
+```
 
 **Projet Logiciel Transversal**
 
