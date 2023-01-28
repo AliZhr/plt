@@ -9,8 +9,9 @@
 
 Ali ZOUHAIRI – Lavan SRISKANDARAJAH - Royston WINSON AROKIARAJAH
 
-<img src="rapport/image/Aspose.Words.d663220b-ca81-4584-8c4f-95488ddd0e67.001.jpeg">
-
+<p align="center">
+  <img src="rapport/image/Aspose.Words.d663220b-ca81-4584-8c4f-95488ddd0e67.001.jpeg">
+</p>
 
 
 ## Get Started
