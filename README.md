@@ -8,7 +8,7 @@
 
 Clone the repository
 ```sh 
-$ git clone https://github.com/BillyDin/plt.git
+$ git clone https://github.com/AliZhr/plt
 ```
 
 
