@@ -6,6 +6,14 @@
 [![Actions Status](https://github.com/cbares/plt/workflows/PLT%20build/badge.svg)](https://github.com/AliZhr/plt/actions)
 ## Get Started
 
+Install dependencies
+
+```sh
+$ apt-get update
+$ apt-get install -y build-essential cmake dia lcov gcovr libxml2-dev libsfml-dev libboost-test-dev libmicrohttpd-dev
+```
+
+
 Clone the repository
 ```sh 
 $ git clone https://github.com/AliZhr/plt
