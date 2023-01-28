@@ -13,8 +13,15 @@ Ali ZOUHAIRI – Lavan SRISKANDARAJAH - Royston WINSON AROKIARAJAH
   <img src="rapport/image/Aspose.Words.d663220b-ca81-4584-8c4f-95488ddd0e67.001.jpeg">
 </p>
 
+## The team
 
-## Get Started
+[Ali ZOUHAIRI](https://github.com/AliZhr)
+
+[Lavan SRISKADNARAJAH](https://github.com/Senakyw)
+
+[Royston WINSON AROKIARAJAH](https://github.com/RoyWinson)
+
+# Get Started
 
 ## Install dependencies
 
