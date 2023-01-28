@@ -15,7 +15,7 @@
 
 [Ali ZOUHAIRI](https://github.com/AliZhr)
 
-[Lavan SRISKADNARAJAH](https://github.com/Senakyw)
+[Lavan SRISKANDARAJAH](https://github.com/Senakyw)
 
 [Royston WINSON AROKIARAJAH](https://github.com/RoyWinson)
 
