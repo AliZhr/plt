@@ -1,7 +1,7 @@
 #
 
 
-# PLT
+# Projet Logiciel Transversal
 
 [![Actions Status](https://github.com/cbares/plt/workflows/PLT%20build/badge.svg)](https://github.com/AliZhr/plt/actions)
 ## Get Started
@@ -67,8 +67,6 @@ $ ./bin/client heurvsheur
 ```
 
 
-#Projet Logiciel Transversal
-
 **HIVE**
 
 Ali ZOUHAIRI – Lavan SRISKANDARAJAH
@@ -76,17 +74,6 @@ Ali ZOUHAIRI – Lavan SRISKANDARAJAH
 Royston WINSON AROKIARAJAH
 
 <img src="rapport/image/Aspose.Words.d663220b-ca81-4584-8c4f-95488ddd0e67.001.jpeg">
-
-
-
-
-
-
-
-
-
-
-
 
 
 
