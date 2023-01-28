@@ -79,7 +79,7 @@ $ ./bin/client heurvsheur
 
 
 
-# ` `**Table des matières**
+# Table des matières
 
 [**1 Objectif**](#_5vqim4b4dbvt)
 
