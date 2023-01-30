@@ -85,13 +85,17 @@ $ ./bin/client heurvsheur
 ```sh
 $ ./bin/server
 ```
->Client :
+Client :
 
->POST : http://localhost:8080/create-game -d hostPlayerName | will return a key for a game state
+>POST : 
+
+>http://localhost:8080/create-game -d hostPlayerName | will return a key for a game state
 
 >       http://localhost:8080/create-game -d key, playerName | return succes if's ok
 
->GET :  http://localhost:8080/key | return the last key
+>GET :  
+
+>http://localhost:8080/key | return the last key
 
 >       http://localhost:8080/game -d key | will return some data about the state mapped with the key
 
