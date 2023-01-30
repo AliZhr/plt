@@ -81,6 +81,11 @@ $ ./bin/client randomvsheur
 $ ./bin/client heurvsheur
 ```
 
+## Server test
+```sh
+$ ./bin/server
+  to try with
+```
 
 
 
